@@ -2,7 +2,7 @@
 <input type="button" onclick="document.querySelector('#enemy2_respawn').play()" value="敵2復活音声"/>
 <input type="button" onclick="document.querySelector('#enemy3_respawn').play()" value="敵3復活音声"/>
 <input type="button" onclick="document.querySelector('#enemy4_respawn').play()" value="敵4復活音声"/>
-<div id="matching-data" data-matching-id="<%= @matching.unique_key[0..3] %>"></div>
+<div id="matching-data" data-matching-id="<%= @matching.id %>"></div>
 
 <audio id="enemy1_respawn">
   <source src="/sounds/enemy1_respawn.mp3" type="audio/mp3">
