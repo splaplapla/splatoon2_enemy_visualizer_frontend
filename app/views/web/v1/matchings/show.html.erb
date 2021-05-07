@@ -1,9 +1,9 @@
 <script>
 </script>
-<input type="button" onclick="new Audio('/sounds/enemy1_respawn.mp3').play()" value="敵1復活音声"/>
-<input type="button" onclick="new Audio('/sounds/enemy2_respawn.mp3').play()" value="敵2復活音声"/>
-<input type="button" onclick="new Audio('/sounds/enemy3_respawn.mp3').play()" value="敵3復活音声"/>
-<input type="button" onclick="new Audio('/sounds/enemy4_respawn.mp3').play()" value="敵4復活音声"/>
+<input type="button" onclick="document.querySelector('#enemy1_respawn').play()" value="敵1復活音声"/>
+<input type="button" onclick="document.querySelector('#enemy2_respawn').play()" value="敵2復活音声"/>
+<input type="button" onclick="document.querySelector('#enemy3_respawn').play()" value="敵3復活音声"/>
+<input type="button" onclick="document.querySelector('#enemy4_respawn').play()" value="敵4復活音声"/>
 <div id="matching-data" data-matching-id="<%= @matching.id %>"></div>
 
 <audio id="enemy1_respawn">
