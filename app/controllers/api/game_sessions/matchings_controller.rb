@@ -9,7 +9,7 @@ class Api::GameSessions::MatchingsController < Api::BaseController
 
   def create
     form = Form.new(params)
-    game_session = GameSession.find_by!(unique_key: form.unique_key))
+    game_session = GameSession.find_by!(unique_key: form.unique_key)
     matching = game_session.create_matching!
     render json: { matching_id: matching.unique_key }
   end
