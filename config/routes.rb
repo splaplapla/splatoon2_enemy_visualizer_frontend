@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: "game_sessions#index"
+
+  namespace :api, shallow: true do
+    resources :game_sessions, only: [:create, :show] do
+      scope module: :game_sessions, shallow: true do
+        resources :matchings, only: [:create]
+      end
+    end
+  end
+
+  namespace :web, shallow: true do
+    namespace :v1 do
+      resources :matchings, only: :show
+    end
+  end
 end

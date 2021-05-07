@@ -1,0 +1,22 @@
+<script>
+</script>
+<input type="button" onclick="new Audio('/sounds/enemy1_respawn.mp3').play()" value="敵1復活音声"/>
+<input type="button" onclick="new Audio('/sounds/enemy2_respawn.mp3').play()" value="敵2復活音声"/>
+<input type="button" onclick="new Audio('/sounds/enemy3_respawn.mp3').play()" value="敵3復活音声"/>
+<input type="button" onclick="new Audio('/sounds/enemy4_respawn.mp3').play()" value="敵4復活音声"/>
+<div id="matching-data" data-matching-id="<%= @matching.id %>"></div>
+
+<audio id="enemy1_respawn">
+  <source src="/sounds/enemy1_respawn.mp3" type="audio/mp3">
+</audio>
+<audio id="enemy2_respawn">
+  <source src="/sounds/enemy2_respawn.mp3" type="audio/mp3">
+</audio>
+<audio id="enemy3_respawn">
+  <source src="/sounds/enemy3_respawn.mp3" type="audio/mp3">
+</audio>
+<audio id="enemy4_respawn">
+  <source src="/sounds/enemy4_respawn.mp3" type="audio/mp3">
+</audio>
+
+製造時間に応じたメーターっぽいのを出す
