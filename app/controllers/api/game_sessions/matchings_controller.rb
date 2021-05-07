@@ -7,6 +7,11 @@ class Api::GameSessions::MatchingsController < Api::BaseController
     end
   end
 
+  def show
+    matching = Matching.find_by(unique_key: params[:id])
+    render json: { matching_id: matching.id  }
+  end
+
   def create
     form = Form.new(params)
     game_session = GameSession.find_by!(unique_key: form.unique_key)
