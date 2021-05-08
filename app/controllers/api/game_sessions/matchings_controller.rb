@@ -9,7 +9,7 @@ class Api::GameSessions::MatchingsController < Api::BaseController
 
   def show
     matching = Matching.find_by(unique_key: params[:id])
-    render json: { matching_id: matching.id  }
+    render json: { matching_id: matching.id }
   end
 
   def create
