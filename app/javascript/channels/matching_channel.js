@@ -1,22 +1,19 @@
 import consumer from "./consumer"
 
-const matchingId = document.getElementById('matching-data').dataset.matchingId;
+const matching_data = document.getElementById('matching-data')
+const matchingId = matching_data && matching_data.dataset.matchingId;
 if(matchingId) {
-  const enemy1_sound = document.querySelector("#enemy1_respawn");
-  const enemy2_sound = document.querySelector("#enemy2_respawn");
-  const enemy3_sound = document.querySelector("#enemy3_respawn");
-  const enemy4_sound = document.querySelector("#enemy4_respawn");
+  const enemy1Sound = document.querySelector("#enemy1_respawn");
+  const enemy2Sound = document.querySelector("#enemy2_respawn");
+  const enemy3Sound = document.querySelector("#enemy3_respawn");
+  const enemy4Sound = document.querySelector("#enemy4_respawn");
 
-  async function playSound(enemy_no) {
+  async function playSound(action, enemy_no) {
     try {
-      if(enemy_no == 1) {
-        await enemy1_sound.play();
-      } else if(enemy_no == 2) {
-        await enemy2_sound.play();
-      } else if(enemy_no == 3) {
-        await enemy3_sound.play();
-      } else if(enemy_no == 4) {
-        await enemy4_sound.play();
+      if(data.action == "respawn") {
+        await this[`enemy${enemy_no}Sound`].play();
+      } else if(data.action == "killed") {
+        // TODO
       }
     } catch(err) {
       console.log(err);
@@ -32,9 +29,7 @@ if(matchingId) {
     },
     received(data) {
       console.log("MatchingChannel.received", data);
-      if(data.action == "respawn") {
-        playSound(data.event.enemy_no);
-      }
+      playSound(data.action, data.event.enemy_no);
     }
   });
 }

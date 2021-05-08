@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "game_sessions#index"
+  resources :game_sessions, only: [:create, :destroy]
 
   namespace :api, shallow: true do
     resources :game_sessions, only: [:create, :show] do
