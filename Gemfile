@@ -8,7 +8,6 @@ gem 'mysql2'
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
-gem 'turbolinks', '~> 5'
 gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
