@@ -1,19 +1,31 @@
 import consumer from "./consumer"
 
+export class EnemyMeter {
+  constructor(enemy_no) {
+    this.sound = document.querySelector(`#enemy${enemy_no}_respawn`)
+  }
+  async respawn() {
+    this.sound.play();
+  }
+  async killed() {
+  }
+}
+
 const matching_data = document.getElementById('matching-data')
 const matchingId = matching_data && matching_data.dataset.matchingId;
+
 if(matchingId) {
-  window.enemy1Sound = document.querySelector("#enemy1_respawn");
-  window.enemy2Sound = document.querySelector("#enemy2_respawn");
-  window.enemy3Sound = document.querySelector("#enemy3_respawn");
-  window.enemy4Sound = document.querySelector("#enemy4_respawn");
+  window.enemy1 = new EnemyMeter(1);
+  window.enemy2 = new EnemyMeter(2);
+  window.enemy3 = new EnemyMeter(3);
+  window.enemy4 = new EnemyMeter(4);
 
   async function playSound(action, enemy_no) {
     try {
       if(action == "respawn") {
-        await window[`enemy${enemy_no}Sound`].play();
+        await window[`enemy${enemy_no}`].respawn();
       } else if(action == "killed") {
-        // TODO
+        await window[`enemy${enemy_no}`].killed();
       }
     } catch(err) {
       console.log(err);
