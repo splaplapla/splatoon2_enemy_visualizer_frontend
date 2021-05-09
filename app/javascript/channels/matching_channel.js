@@ -49,7 +49,7 @@ if(matchingId) {
   window.registry = new EnemyRegistry
   registry.register(new Enemy(1))
   registry.register(new Enemy(2))
-  registry.register(new Enemy(2))
+  registry.register(new Enemy(3))
   registry.register(new Enemy(4))
 
   async function playSound(action, enemy_no) {
