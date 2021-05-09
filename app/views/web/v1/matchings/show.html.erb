@@ -1,19 +1,51 @@
-<input type="button" onclick="document.querySelector('#enemy1_respawn').play()" value="敵1復活音声"/>
-<input type="button" onclick="document.querySelector('#enemy2_respawn').play()" value="敵2復活音声"/>
-<input type="button" onclick="document.querySelector('#enemy3_respawn').play()" value="敵3復活音声"/>
-<input type="button" onclick="document.querySelector('#enemy4_respawn').play()" value="敵4復活音声"/>
+<script>
+  onended="console.log('ended');"
+  async function prepareSounds (){
+      const status = document.getElementById('playable-sound-status');
+      status.innerHTML = "<p>音声が流れるようになりました</p>";
+
+      // ユーザが自分で再生アクションを取らないとwebsocket経由で音が流れないため
+      var a = document.querySelector('#enemy1_respawn');
+      await a.play();
+      a.onended = function(audio) {
+        document.querySelector('#enemy1_respawn').muted = false;
+      }
+
+      var a = document.querySelector('#enemy2_respawn');
+      await a.play();
+      a.onended = function(audio) {
+        document.querySelector('#enemy2_respawn').muted = false;
+      }
+
+      var a = document.querySelector('#enemy3_respawn');
+      await a.play();
+      a.onended = function(audio) {
+        document.querySelector('#enemy3_respawn').muted = false;
+      }
+
+      var a = document.querySelector('#enemy4_respawn');
+      await a.play();
+      a.onended = function(audio) {
+        document.querySelector('#enemy4_respawn').muted = false;
+      }
+  }
+</script>
+<div id="playable-sound-status">
+  <input type="button" onclick="prepareSounds()" value="敵復活時に音声が流れるようにする"/>
+</div>
+
 <div id="matching-data" data-matching-id="<%= @matching.id %>"></div>
 
-<audio id="enemy1_respawn">
+<audio id="enemy1_respawn" muted>
   <source src="/sounds/enemy1_respawn.mp3" type="audio/mp3">
 </audio>
-<audio id="enemy2_respawn">
+<audio id="enemy2_respawn" muted>
   <source src="/sounds/enemy2_respawn.mp3" type="audio/mp3">
 </audio>
-<audio id="enemy3_respawn">
+<audio id="enemy3_respawn" muted>
   <source src="/sounds/enemy3_respawn.mp3" type="audio/mp3">
 </audio>
-<audio id="enemy4_respawn">
+<audio id="enemy4_respawn" muted>
   <source src="/sounds/enemy4_respawn.mp3" type="audio/mp3">
 </audio>
 
