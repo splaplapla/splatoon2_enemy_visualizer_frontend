@@ -1,7 +1,6 @@
 <script>
-  onended="console.log('ended');"
   async function prepareSounds (){
-      const status = document.getElementById('playable-sound-status');
+      const status = document.getElementById('sound-setup');
       status.innerHTML = "<p>音声が流れるようになりました</p>";
 
       // ユーザが自分で再生アクションを取らないとwebsocket経由で音が流れないため
@@ -29,9 +28,18 @@
         document.querySelector('#enemy4_respawn').muted = false;
       }
   }
+  function playTestSound() {
+    var audio = document.querySelector('#enemy1_respawn');
+    audio.muted = false;
+    audio.play();
+  }
 </script>
-<div id="playable-sound-status">
+<div id="sound-setup">
   <input type="button" onclick="prepareSounds()" value="敵復活時に音声が流れるようにする"/>
+</div>
+
+<div>
+  <input type="button" onclick="playTestSound()" value="音をならしみる"/>
 </div>
 
 <div id="matching-data" data-matching-id="<%= @matching.id %>"></div>
