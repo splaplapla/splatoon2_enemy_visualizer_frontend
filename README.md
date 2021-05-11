@@ -24,3 +24,4 @@ GameSession, Matchingを作成したのち、rails c上で`ActionCable.server.br
   * console.log的なの？
 * サンプル動画を貼る
 * 表示しているデータがどのくらい遅延しているかをwebで表示する
+* 音声の再生がかぶらないように直列で再生する
