@@ -20,7 +20,7 @@ GameSession, Matchingを作成したのち、rails c上で`ActionCable.server.br
 ## TODO
 * eventをhookに生存時間・復帰中時間を表示する
 * webページにリポジトリURLを貼る
-* ブラウザで表示した直後は、websocket経由では音声が流れない可能性があるので、ボタンを押してくださいって案内を書く
 * websocketからの受信を視覚的にわかるようなコンポーネントを表示する
   * console.log的なの？
 * サンプル動画を貼る
+* 表示しているデータがどのくらい遅延しているかをwebで表示する
