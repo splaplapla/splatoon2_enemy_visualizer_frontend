@@ -78,7 +78,7 @@ if(matchingId) {
     },
     received(data) {
       console.log("MatchingChannel.received", data);
-      playSound(data.action, data.event.enemy_no);
+      playSound(data.action, data.enemy_no);
     }
   });
 }
