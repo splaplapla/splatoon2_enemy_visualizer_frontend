@@ -15,13 +15,14 @@
 
 ## 動作確認メモ
 ### websocketで受信する方法
-GameSession, Matchingを作成したのち、rails c上で`ActionCable.server.broadcast "matching_channel_1", { action: "respawn", event: { enemy_no: 2 } }` を実行する
+GameSession, Matchingを作成したのち、rails c上で
+```
+ActionCable.server.broadcast "matching_channel_1", { action: "respawn", enemy_no: 2,broadcasts_at: Time.zone.now.to_s, event_created_at: 3.seconds.ago.to_s  }
+```
+を実行する
 
 ## TODO
 * eventをhookに生存時間・復帰中時間を表示する
 * webページにリポジトリURLを貼る
-* websocketからの受信を視覚的にわかるようなコンポーネントを表示する
-  * console.log的なの？
 * サンプル動画を貼る
-* 表示しているデータがどのくらい遅延しているかをwebで表示する
 * 音声の再生がかぶらないように直列で再生する

@@ -66,9 +66,9 @@ if(matchingId) {
   function getOld(enemy) {
     window.registry.enemies.forEach(enemy => enemy.getOld())
   }
-
   window.setInterval(getOld, 1000);
 
+  const debug_console = document.getElementById('debug_console')
   consumer.subscriptions.create({ channel: "MatchingChannel", matching_id: matchingId }, {
     connected() {
       console.log("MatchingChannel.connected")
@@ -79,6 +79,14 @@ if(matchingId) {
     received(data) {
       console.log("MatchingChannel.received", data);
       playSound(data.action, data.enemy_no);
+
+      if(data.broadcasts_at && data.event_created_at) {
+        var time_after_broadcast = new Date() - Date.parse(data.broadcasts_at)
+        var time_after_created = new Date - Date.parse(data.event_created_at)
+        var event = document.createElement("div");
+        event.innerHTML = `${data.enemy_no}: ${data.action}(b: ${time_after_broadcast / 1000}, c: ${time_after_created / 1000})`;
+        debug_console.prepend(event);
+      }
     }
   });
 }

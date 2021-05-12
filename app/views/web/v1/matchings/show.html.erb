@@ -33,6 +33,10 @@
     audio.muted = false;
     audio.play();
   }
+  function clearDebugConsole() {
+    const debug_console = document.getElementById('debug_console')
+    debug_console.innerHTML = null;
+  }
 </script>
 <div id="sound-setup">
   <input type="button" onclick="prepareSounds()" value="敵復活時に音声が流れるようにする"/>
@@ -40,6 +44,10 @@
 
 <div>
   <input type="button" onclick="playTestSound()" value="音をならしみる"/>
+</div>
+
+<div>
+  <input type="button" onclick="clearDebugConsole()" value="ログを消す"/>
 </div>
 
 <div id="matching-data" data-matching-id="<%= @matching.id %>"></div>
@@ -63,3 +71,5 @@
   <div class="enemy" data-enemy_no="enemy3"></div>
   <div class="enemy" data-enemy_no="enemy4"></div>
 </div>
+
+<div id="debug_console"></div>
