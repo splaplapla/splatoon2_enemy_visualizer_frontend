@@ -81,8 +81,8 @@ if(matchingId) {
       playSound(data.action, data.enemy_no);
 
       if(data.broadcasts_at && data.event_created_at) {
-        var time_after_broadcast = new Date() - Date.parse(data.broadcasts_at)
-        var time_after_created = new Date - Date.parse(data.event_created_at)
+        var time_after_broadcast = new Date - Date.parse(data.broadcasts_at.replace(/-/g , "/"))
+        var time_after_created = new Date - Date.parse(data.event_created_at.replace(/-/g , "/"))
         var event = document.createElement("div");
         event.innerHTML = `${data.enemy_no}: ${data.action}(b: ${time_after_broadcast / 1000}, c: ${time_after_created / 1000})`;
         debug_console.prepend(event);
