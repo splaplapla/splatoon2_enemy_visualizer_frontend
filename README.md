@@ -26,3 +26,4 @@ ActionCable.server.broadcast "matching_channel_1", { action: "respawn", enemy_no
 * webページにリポジトリURLを貼る
 * サンプル動画を貼る
 * 音声の再生がかぶらないように直列で再生する
+* ポジションの判定を間違えることがあるので、ポジションの関係ない音を出せるようにラジオボタンを設置する
